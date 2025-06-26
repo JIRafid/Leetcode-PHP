@@ -12,7 +12,7 @@ class Solution {
         if ($x < 0) {
             return false;
         }
-    $str = strval($x);
+    $str = (string) $x;
     $rev = strrev($str);
     if ($str == $rev){
         return true;

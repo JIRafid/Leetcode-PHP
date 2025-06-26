@@ -1,0 +1,26 @@
+You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+<?php
+
+class Solution {
+
+    /**
+     * @param ListNode $l1
+     * @param ListNode $l2
+     * @return ListNode
+     */
+    function addTwoNumbers($l1, $l2) {
+        $num1 = array_reverse($l1);
+        $num2 = array_reverse($l2);
+        $sum = $this->seperateNumbers($num1) + $this->seperateNumbers($num2);
+        print_r(array_map("intval", str_split(strrev((string) $sum))));
+        
+    }
+    function seperateNumbers($num){
+        $numStr = implode("", $num);
+        return (int)$numStr;
+    }
+}
+$solution = new Solution();
+$solution->addTwoNumbers([2, 4, 3], [5,6,4]);
